@@ -1,9 +1,9 @@
 import React from 'react';
 import addons from '@storybook/addons';
 
-const withCode = function(code, type , storyFn = null) {
+const withCode = function(code, type, label, storyFn = null) {
   const emitAddCode = ({ kind, story }) => {
-    addons.getChannel().emit(`soft/code/add_${type}`, { code, type });
+    addons.getChannel().emit(`soft/code/add_${label}`, { code, type });
   };
   return (storyFn, { kind, story }) => {
       emitAddCode({ kind, story });

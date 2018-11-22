@@ -10,7 +10,7 @@ class Code extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {code: ''};
-    this.channelName = `soft/code/add_${props.type}`;
+    this.channelName = `soft/code/add_${props.label}`;
     this.onSelectTab = this.onSelectTab.bind(this);
   }
 
@@ -58,11 +58,11 @@ class Code extends React.Component {
 }
 
 const registerTab  = ({label, type}) => {
-  addons.register(`soft/code/add_${type}`, (api) => {
-    addons.addPanel(`soft/${type}/panel`, {
+  addons.register(`soft/code/add_${label}`, (api) => {
+    addons.addPanel(`soft/${label}/panel`, {
       title: label,
       render: () => (
-        <Code channel={addons.getChannel()} api={api} type={type} />
+        <Code channel={addons.getChannel()} api={api} type={type} label={label} />
       )
     })
   })
