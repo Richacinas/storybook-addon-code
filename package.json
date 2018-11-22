@@ -9,7 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/SOFTVISION-University/storybook-addon-code.git"
+    "url": "https://github.com/Richacinas/storybook-addon-code.git"
   },
   "main": "./dist/index.js",
   "types": "./typings/index.d.ts",
@@ -21,7 +21,7 @@
     "clean": "rm -rf ./dist",
     "prepublish": "npm run build"
   },
-  "author": "SoftVision",
+  "author": "richacinas",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.1.5",
