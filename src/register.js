@@ -31,19 +31,19 @@ class Code extends React.Component {
 
   render() {
     const { code } = this.state;
-    const { type } = this.props;
-    return (
+    const { type, active } = this.props;
+    return active ? (
       <div>{ 
-        code ? 
-          <pre>
-            <code>
-              <div dangerouslySetInnerHTML={{__html: code}} />
-            </code>
-          </pre> :
-          <p> No {type} code Found </p>
+          code ? 
+            <pre>
+              <code>
+                <div dangerouslySetInnerHTML={{__html: code}} />
+              </code>
+            </pre> :
+            <p> No {type} code Found </p>
         }
       </div>
-    );
+    ) : null;
   }
 
   componentWillUnmount() {
@@ -61,8 +61,8 @@ const registerTab  = ({label, type}) => {
   addons.register(`soft/code/add_${label}`, (api) => {
     addons.addPanel(`soft/${label}/panel`, {
       title: label,
-      render: () => (
-        <Code channel={addons.getChannel()} api={api} type={type} label={label} />
+      render: ({ active }) => (
+        <Code channel={addons.getChannel()} api={api} type={type} label={label} active={active} />
       )
     })
   })
